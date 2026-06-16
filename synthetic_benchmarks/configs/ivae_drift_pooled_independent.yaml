@@ -1,0 +1,57 @@
+# Protocol B (pooled training): Train on ALL domains, evaluate identity consistency + session leakage.
+# STRONG drift: each domain has an independent mixing (f_z differs strongly).
+# Even if MCC is not extremely low, we often observe:
+#   - identity inconsistency across domains (different permutations/signs),
+#   - high session leakage from estimated sources.
+
+# dataset (source nonstationarity)
+nps: 500
+ns: 20
+dl: 5
+dd: 5
+nl: 3
+s: 1
+p: 'gauss'
+act: 'xtanh'
+uncentered: false
+noisy: false
+staircase: false
+
+# ---- drift knobs ----
+mix_drift: true
+use_drift_adapter: false 
+use_ica_anchor: true
+lambda_ica_anchor: 0.0 
+eval_align_to_anchor: true
+n_domains: 3
+drift_mode: 'independent'
+drift_strength: 0.0
+share_source_params: true
+# ---- diagnostics ----
+report_diagnostics: true
+save_heatmaps: true
+probe_max_samples: 20000
+
+# model args
+n_layers: 3
+hidden_dim: 100
+activation: 'xtanh'
+ica: true
+initialize: true
+batch_norm: false
+tcl: false
+
+# learning
+a: 100
+b: 1
+c: 0
+d: 10
+gamma: 0
+lr: 0.01
+batch_size: 64
+epochs: 20
+no_scheduler: false
+anneal: false
+
+# dataloader
+num_workers: 0

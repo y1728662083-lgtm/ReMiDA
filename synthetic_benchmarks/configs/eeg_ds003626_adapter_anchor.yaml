@@ -1,0 +1,53 @@
+# Real EEG runner config (ds003626 -> .npz)
+# This matches the synthetic "adapter + ICA anchor (signfix)" idea.
+
+# Usage:
+#   python -u main.py --config eeg_ds003626_adapter_anchor.yaml --doc eeg_adapt_anchor_sub01 --data /path/to/ds003626_sub01_inner.npz --seed 0 --n-sims 3
+
+dataset: ds003626_npz
+real_eeg: true
+# --data overrides
+
+eeg_npz_path: run/datasets/ds003626_sub01_inner_pca32.npz
+
+# Model
+# IMPORTANT: For adapter_init=ica, you want data_dim == dl (square W_init).
+# Easiest: export with --pca_dim 32 and set dl: 32
+# If you keep raw channels (e.g., D=128), set dl: 128 (heavier).
+dl: 32
+hidden_dim: 128
+n_layers: 3
+activation: lrelu
+
+# Training
+ica: true
+a: 1
+b: 0
+c: 0
+d: 1
+
+epochs: 50
+batch_size: 256
+lr: 0.001
+lr_adapter: 0.0001
+no_scheduler: false
+
+# ICA anchor loss (weak supervision, sign-invariant)
+use_ica_anchor: true
+lambda_ica_anchor: 0.1
+
+# Domain drift adapter
+use_drift_adapter: true
+adapter_init: ica
+lambda_adapter_init: 1.0
+lambda_drift_adapter: 0.01
+lambda_drift_ortho: 0.0
+adapter_ridge: 0.001
+
+# Diagnostics / evaluation
+save_heatmaps: false
+ica_anchor_max_samples: 50000
+ica_anchor_seed: 0
+
+decode_direction: true
+decode_max_iter: 2000

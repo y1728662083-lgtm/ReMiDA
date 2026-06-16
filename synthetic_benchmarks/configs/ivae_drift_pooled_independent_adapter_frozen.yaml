@@ -1,0 +1,80 @@
+# Protocol B (pooled training) + ICA anchor alignment
+#
+# This config extends `ivae_drift_pooled_independent.yaml` by enabling an
+# ICA anchor loss. The goal is to mitigate the *identity inconsistency*
+# (permutation/sign drift) observed under independent mixing drift.
+#
+# Expected outcome:
+#   - perm_agreement and sign_agreement should increase
+#   - FULL MCC may recover compared to the no-anchor baseline
+#   - session leakage probe may decrease (optional)
+
+# dataset (source nonstationarity)
+nps: 500
+ns: 20
+dl: 5
+dd: 5
+nl: 3
+s: 1
+p: 'gauss'
+act: 'xtanh'
+uncentered: false
+noisy: false
+staircase: false
+
+# ---- drift knobs ----
+mix_drift: true
+n_domains: 3
+drift_mode: 'independent'
+drift_strength: 0.0
+share_source_params: true
+
+# ---- drift adapter knobs ----
+use_drift_adapter: true
+freeze_adapter: true          # Freeze the adapter if needed
+drift_adapter_init: ica        # Initialize W_z with the ICA anchor; use identity for a simpler check.
+drift_adapter_ridge: 0.001
+
+lr_adapter: 0.0001             # Use a smaller learning rate for the adapter than for the main model.
+lambda_adapter_init: 0.0 
+
+# Drift constraints
+lambda_drift_adapter: 0.0    # Regularization for Delta_z
+lambda_drift_ortho: 0.0      # Optional stability/orthogonality constraint
+
+# ---- ICA anchor knobs ----
+use_ica_anchor: true
+lambda_ica_anchor: 0.0
+eval_align_to_anchor: true    # Enable post-hoc alignment evaluation
+ica_anchor_ref_domain: 0
+ica_anchor_max_samples_per_domain: 5000
+ica_anchor_max_iter: 500
+
+# ---- diagnostics ----
+report_diagnostics: true
+save_heatmaps: true
+probe_max_samples: 20000
+
+# model args
+n_layers: 3
+hidden_dim: 100
+activation: 'xtanh'
+ica: true
+initialize: true
+batch_norm: false
+tcl: false
+
+# learning
+a: 100
+b: 1
+c: 0
+d: 10
+gamma: 0
+lr: 0.01
+batch_size: 64
+epochs: 20
+no_scheduler: false
+anneal: false
+
+# dataloader
+num_workers: 0

@@ -1,0 +1,43 @@
+# Real EEG runner config (ds003626 derivatives exported to .npz)
+# Usage:
+#   python -u main.py --config eeg_ds003626_base.yaml --doc eeg_base_sub01 --data /path/to/ds003626_sub01_inner.npz
+
+dataset: ds003626_npz
+real_eeg: true
+# You can put a default path here; --data overrides it.
+eeg_npz_path: run/datasets/ds003626_sub01_inner_pca32.npz
+
+# Model
+# Tip: set dl to match the PCA dim used in prepare_ds003626_npz.py
+# (if you want adapter_init=ica later, dl must equal data dimension D)
+dl: 32
+hidden_dim: 128
+n_layers: 3
+activation: lrelu
+
+# Training
+ica: true
+# cleanIVAE loss weights (same defaults as synthetic configs)
+a: 1
+b: 0
+c: 0
+d: 1
+
+epochs: 50
+batch_size: 256
+lr: 0.001
+no_scheduler: false
+
+# Anchor + adapter (baseline = no anchor loss, no adapter)
+use_ica_anchor: true
+lambda_ica_anchor: 0.0
+
+use_drift_adapter: false
+
+# Diagnostics / evaluation
+save_heatmaps: false
+ica_anchor_max_samples: 50000
+ica_anchor_seed: 0
+
+decode_direction: true
+decode_max_iter: 2000

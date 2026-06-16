@@ -1,0 +1,41 @@
+# Real EEG runner config (ds003626 -> .npz)
+# Anchor-only: use ICA anchor loss but no drift adapter.
+
+dataset: ds003626_npz
+real_eeg: true
+
+eeg_npz_path: run/datasets/ds003626_sub01_inner_pca32.npz
+
+# Model
+# Tip: match dl to the PCA dim from prepare_ds003626_npz.py
+dl: 32
+hidden_dim: 128
+n_layers: 3
+activation: lrelu
+
+# Training
+ica: true
+a: 1
+b: 0
+c: 0
+d: 1
+
+epochs: 50
+batch_size: 256
+lr: 0.001
+no_scheduler: false
+
+# Anchor loss
+use_ica_anchor: true
+lambda_ica_anchor: 0.1
+
+# No adapter
+use_drift_adapter: false
+
+# Evaluation
+save_heatmaps: false
+ica_anchor_max_samples: 50000
+ica_anchor_seed: 0
+
+decode_direction: true
+decode_max_iter: 2000

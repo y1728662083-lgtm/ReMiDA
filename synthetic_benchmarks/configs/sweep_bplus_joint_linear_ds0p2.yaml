@@ -1,0 +1,57 @@
+nps: 500
+ns: 20
+dl: 5
+dd: 5
+nl: 3
+s: 1
+p: gauss
+act: none
+uncentered: false
+noisy: false
+staircase: false
+
+mix_drift: true
+n_domains: 3
+drift_mode: perturb
+drift_strength: 0.2
+share_source_params: true
+
+aux_mode: joint
+
+use_drift_adapter: false
+
+use_ica_anchor: true
+lambda_ica_anchor: 0.0
+eval_align_to_anchor: true
+ica_anchor_ref_domain: 0
+ica_anchor_max_samples_per_domain: 5000
+ica_anchor_max_iter: 500
+
+report_diagnostics: true
+save_heatmaps: true
+probe_max_samples: 20000
+
+n_layers: 3
+hidden_dim: 100
+activation: xtanh
+ica: true
+initialize: true
+batch_norm: false
+tcl: false
+
+a: 100
+b: 1
+c: 0
+d: 10
+gamma: 0
+
+lr: 0.01
+batch_size: 64
+epochs: 20
+no_scheduler: false
+anneal: false
+num_workers: 0
+
+# --- B+ routing ablation ---
+aux_mode: joint
+report_diagnostics: true
