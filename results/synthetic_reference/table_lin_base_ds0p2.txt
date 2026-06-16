@@ -1,0 +1,119 @@
+Executing script on: cuda
+
+data loaded on cpu
+[anchor] dom 0: mean_abs_corr=1.000, perm_ref->dom=[0,1,2,3,4]
+[anchor] dom 1: mean_abs_corr=0.996, perm_ref->dom=[4,1,0,2,3]
+[anchor] dom 2: mean_abs_corr=0.996, perm_ref->dom=[3,1,2,4,0]
+[anchor-qual] FULL MCC(S_true, S_anchor) = 0.732669
+[anchor-qual] dom 0: MCC=0.998422 (n=10000)
+[anchor-qual] dom 1: MCC=0.999442 (n=10000)
+[anchor-qual] dom 2: MCC=0.998612 (n=10000)
+[anchor-qual] identity consistency of anchors vs ref: perm_agreement=1.000, sign_agreement=0.700
+==> Epoch 1/20:	train loss: -195.466388	train perf: 0.616804
+==> Epoch 2/20:	train loss: -328.002448	train perf: 0.609202
+==> Epoch 3/20:	train loss: -421.839721	train perf: 0.596067
+==> Epoch 4/20:	train loss: -430.613883	train perf: 0.592238
+==> Epoch 5/20:	train loss: -444.767557	train perf: 0.556649
+==> Epoch 6/20:	train loss: -454.282363	train perf: 0.566044
+==> Epoch 7/20:	train loss: -490.224740	train perf: 0.595170
+==> Epoch 8/20:	train loss: -484.600172	train perf: 0.562490
+==> Epoch 9/20:	train loss: -565.450887	train perf: 0.601511
+==> Epoch 10/20:	train loss: -575.454812	train perf: 0.589446
+==> Epoch 11/20:	train loss: -578.459523	train perf: 0.595667
+==> Epoch 12/20:	train loss: -580.756472	train perf: 0.605140
+==> Epoch 13/20:	train loss: -582.615369	train perf: 0.602414
+==> Epoch 14/20:	train loss: -584.500230	train perf: 0.605993
+==> Epoch 15/20:	train loss: -585.862587	train perf: 0.645532
+==> Epoch 16/20:	train loss: -587.038796	train perf: 0.646210
+==> Epoch 17/20:	train loss: -588.159788	train perf: 0.640848
+==> Epoch 18/20:	train loss: -588.594507	train perf: 0.628224
+==> Epoch 19/20:	train loss: -589.444001	train perf: 0.625759
+==> Epoch 20/20:	train loss: -590.166234	train perf: 0.639679
+
+total runtime: 171.82610774040222
+Final MCC on FULL dataset (seed=0): 0.653525
+Final MCC after ICA-anchor post-hoc alignment (seed=0): 0.536015
+[diag] identity consistency AFTER anchor-align: perm_agreement=1.000, sign_agreement=0.700
+Per-domain MCC: z=0: 0.788 (n=10000), z=1: 0.718 (n=10000), z=2: 0.611 (n=10000)
+[diag] domain 0: match_score=0.788, est->true perm=[4,1,0,3,2]
+[diag] domain 1: match_score=0.718, est->true perm=[4,1,0,3,2]
+[diag] domain 2: match_score=0.611, est->true perm=[4,2,0,1,3]
+[diag] identity consistency vs ref(z=0): perm_agreement=0.700, sign_agreement=0.800
+/root/miniconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+/root/miniconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+[diag] session leakage probe (\hat{s} -> z): acc=0.349 (chance=0.333, n=20000)
+[diag] sanity probe (true s -> z): acc=0.316 (chance=0.333, n=20000)
+==> Epoch 1/20:	train loss: -222.484922	train perf: 0.561227
+==> Epoch 2/20:	train loss: -516.625551	train perf: 0.581914
+==> Epoch 3/20:	train loss: -491.363251	train perf: 0.581821
+==> Epoch 4/20:	train loss: -591.467019	train perf: 0.576551
+==> Epoch 5/20:	train loss: -593.534370	train perf: 0.582641
+==> Epoch 6/20:	train loss: -593.659151	train perf: 0.579077
+==> Epoch 7/20:	train loss: -593.685949	train perf: 0.586220
+==> Epoch 8/20:	train loss: -593.372825	train perf: 0.578789
+==> Epoch 9/20:	train loss: -596.467954	train perf: 0.575779
+==> Epoch 10/20:	train loss: -596.715025	train perf: 0.575665
+==> Epoch 11/20:	train loss: -596.559524	train perf: 0.576841
+==> Epoch 12/20:	train loss: -596.936890	train perf: 0.577808
+==> Epoch 13/20:	train loss: -596.943174	train perf: 0.578193
+==> Epoch 14/20:	train loss: -597.017439	train perf: 0.576027
+==> Epoch 15/20:	train loss: -597.039595	train perf: 0.578601
+==> Epoch 16/20:	train loss: -597.063847	train perf: 0.577324
+==> Epoch 17/20:	train loss: -597.108900	train perf: 0.577291
+==> Epoch 18/20:	train loss: -597.040749	train perf: 0.577947
+==> Epoch 19/20:	train loss: -597.195252	train perf: 0.580015
+==> Epoch 20/20:	train loss: -597.068374	train perf: 0.579613
+
+total runtime: 363.0178015232086
+Final MCC on FULL dataset (seed=1): 0.558810
+Final MCC after ICA-anchor post-hoc alignment (seed=1): 0.455744
+[diag] identity consistency AFTER anchor-align: perm_agreement=0.800, sign_agreement=0.700
+Per-domain MCC: z=0: 0.699 (n=10000), z=1: 0.697 (n=10000), z=2: 0.545 (n=10000)
+[diag] domain 0: match_score=0.699, est->true perm=[4,2,1,0,3]
+[diag] domain 1: match_score=0.697, est->true perm=[0,2,1,4,3]
+[diag] domain 2: match_score=0.545, est->true perm=[4,1,2,3,0]
+[diag] identity consistency vs ref(z=0): perm_agreement=0.400, sign_agreement=0.600
+/root/miniconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+/root/miniconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+[diag] session leakage probe (\hat{s} -> z): acc=0.347 (chance=0.333, n=20000)
+[diag] sanity probe (true s -> z): acc=0.329 (chance=0.333, n=20000)
+==> Epoch 1/20:	train loss: -291.166643	train perf: 0.544386
+==> Epoch 2/20:	train loss: -343.214608	train perf: 0.559807
+==> Epoch 3/20:	train loss: -484.262116	train perf: 0.601601
+==> Epoch 4/20:	train loss: -479.665189	train perf: 0.630797
+==> Epoch 5/20:	train loss: -575.349869	train perf: 0.597750
+==> Epoch 6/20:	train loss: -582.755894	train perf: 0.605122
+==> Epoch 7/20:	train loss: -586.051035	train perf: 0.601799
+==> Epoch 8/20:	train loss: -588.182312	train perf: 0.592176
+==> Epoch 9/20:	train loss: -589.663082	train perf: 0.615972
+==> Epoch 10/20:	train loss: -590.506165	train perf: 0.637056
+==> Epoch 11/20:	train loss: -591.368795	train perf: 0.644924
+==> Epoch 12/20:	train loss: -592.031845	train perf: 0.636652
+==> Epoch 13/20:	train loss: -592.255182	train perf: 0.635539
+==> Epoch 14/20:	train loss: -592.061074	train perf: 0.632470
+==> Epoch 15/20:	train loss: -596.574196	train perf: 0.646073
+==> Epoch 16/20:	train loss: -596.956152	train perf: 0.644870
+==> Epoch 17/20:	train loss: -597.019346	train perf: 0.646317
+==> Epoch 18/20:	train loss: -597.162174	train perf: 0.646986
+==> Epoch 19/20:	train loss: -597.005396	train perf: 0.641954
+==> Epoch 20/20:	train loss: -597.407173	train perf: 0.647644
+
+total runtime: 544.5275366306305
+Final MCC on FULL dataset (seed=2): 0.650653
+Final MCC after ICA-anchor post-hoc alignment (seed=2): 0.453295
+[diag] identity consistency AFTER anchor-align: perm_agreement=1.000, sign_agreement=0.700
+Per-domain MCC: z=0: 0.764 (n=10000), z=1: 0.666 (n=10000), z=2: 0.619 (n=10000)
+[diag] domain 0: match_score=0.764, est->true perm=[1,0,4,3,2]
+[diag] domain 1: match_score=0.666, est->true perm=[1,0,4,3,2]
+[diag] domain 2: match_score=0.619, est->true perm=[2,0,4,1,3]
+[diag] identity consistency vs ref(z=0): perm_agreement=0.700, sign_agreement=0.800
+/root/miniconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+/root/miniconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+[diag] session leakage probe (\hat{s} -> z): acc=0.370 (chance=0.333, n=20000)
+[diag] sanity probe (true s -> z): acc=0.334 (chance=0.333, n=20000)

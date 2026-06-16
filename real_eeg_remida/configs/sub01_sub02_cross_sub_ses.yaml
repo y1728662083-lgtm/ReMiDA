@@ -1,0 +1,89 @@
+seed: 42
+device: cuda
+
+dataset:
+  dataset_root: ..
+  derivatives_subdir: derivatives
+  subjects: [sub-01, sub-02]
+  sessions: [ses-01, ses-02, ses-03]
+  condition: inner
+  class_ids: [0, 1, 2, 3]
+  class_names: [arriba, abajo, derecha, izquierda]
+  use_task_related_channels: false
+  keep_channels: []
+  min_required_channels: 12
+  drop_emg_contaminated: false
+  crop_points: null
+  baseline_tmin: -0.5
+  baseline_tmax: 0.0
+  export_fif: true
+  export_latents_npy: true
+
+cross_subject:
+  enabled: true
+  directions: ["sub-01->sub-02", "sub-02->sub-01"]
+  sessions: [ses-01, ses-02, ses-03]
+  source_val_ratio: 0.20
+  seed: 42
+
+cross_session:
+  enabled: true
+  subjects: [sub-01, sub-02]
+  target_sessions: [ses-01, ses-02, ses-03]
+  source_val_ratio: 0.20
+  seed: 42
+
+front:
+  use_bias: false
+  freeze_reference: true
+  use_domain_delta: true
+  lambda_front_cov: 0.05
+  lambda_front_ortho: 0.005
+  lambda_front_tether: 0.01
+  lambda_front_delta: 0.005
+
+linear_model:
+  latent_dim: 64
+  backbone_encoder: cnn
+  backbone_decoder: cnn
+  encoder_hidden: 128
+  decoder_hidden: 128
+  temporal_layers: 2
+  temporal_width: 7
+  lstm_hidden: 128
+  lstm_layers: 1
+  mamba_dim: 128
+  dropout: 0.2
+  beta_kl: 0.001
+  lambda_recon: 1.0
+  lambda_class: 1.0
+  lambda_domain_adv: 0.2
+  lambda_band_alignment: 0.1
+  lambda_latent_center: 0.1
+  reparam_hidden: 128
+
+training:
+  epochs: 120
+  batch_size_source: 32
+  batch_size_adapt: 32
+  lr: 0.0003
+  weight_decay: 0.00001
+  patience: 30
+  grad_clip: 5.0
+  num_workers: 0
+  checkpoint_metric: val_score
+  save_every: 10
+
+eegnet:
+  epochs: 120
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0001
+  patience: 25
+  dropout: 0.5
+  modes: [raw, aligned_raw, linear_latent, raw_plus_linear_latent]
+
+output:
+  out_dir: ./outputs
+  experiment_name: sub01_sub02_cross_sub_ses_linear
+  save_checkpoints: true

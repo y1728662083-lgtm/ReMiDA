@@ -1,0 +1,253 @@
+{
+  "out": "data_npz/test_read.npz",
+  "dataset_root": "/root/autodl-tmp",
+  "derivatives_root": "/root/autodl-tmp/derivatives",
+  "n_samples": 5640,
+  "X_shape": [
+    5640,
+    128,
+    1153
+  ],
+  "class_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "domains": [
+    "sub-01",
+    "sub-02",
+    "sub-03",
+    "sub-04",
+    "sub-05",
+    "sub-06",
+    "sub-07",
+    "sub-08",
+    "sub-09",
+    "sub-10"
+  ],
+  "subjects": [
+    "sub-01",
+    "sub-02",
+    "sub-03",
+    "sub-04",
+    "sub-05",
+    "sub-06",
+    "sub-07",
+    "sub-08",
+    "sub-09",
+    "sub-10"
+  ],
+  "sessions": [
+    "ses-01",
+    "ses-02",
+    "ses-03"
+  ],
+  "u_source": "period",
+  "u_values": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "domain_mode": "subject",
+  "drop_emg_contaminated": false,
+  "records": [
+    {
+      "subject": "sub-01",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-01",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-01",
+      "session": "ses-03",
+      "kept": 100,
+      "total": 100
+    },
+    {
+      "subject": "sub-02",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-02",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-02",
+      "session": "ses-03",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-03",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-03",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-03",
+      "session": "ses-03",
+      "kept": 100,
+      "total": 100
+    },
+    {
+      "subject": "sub-04",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-04",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-04",
+      "session": "ses-03",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-05",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-05",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-05",
+      "session": "ses-03",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-06",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-06",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-06",
+      "session": "ses-03",
+      "kept": 140,
+      "total": 140
+    },
+    {
+      "subject": "sub-07",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-07",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-07",
+      "session": "ses-03",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-08",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-08",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-08",
+      "session": "ses-03",
+      "kept": 100,
+      "total": 100
+    },
+    {
+      "subject": "sub-09",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-09",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-09",
+      "session": "ses-03",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-10",
+      "session": "ses-01",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-10",
+      "session": "ses-02",
+      "kept": 200,
+      "total": 200
+    },
+    {
+      "subject": "sub-10",
+      "session": "ses-03",
+      "kept": 200,
+      "total": 200
+    }
+  ]
+}
